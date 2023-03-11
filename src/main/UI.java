@@ -59,15 +59,15 @@ public class UI {
                 gp.mu.play(0);
                 gp.stopMusic(3);
             }
-
+            g2.setFont(new Font("monospaced", Font.PLAIN, 15));
             if(gp.timeInSec%10==0 && gp.timeInSec!=0){
                 text = "It's getting fast!!!";
-                drawTextBox(0, gp.PANEL_HEIGHT-200,400, 100, text);
             }else{
-                text = "";
-                drawTextBox(gp.PANEL_WIDTH, 200,0, 100, text);
+                text = "<Key-I> Show instruction";
             }
+            drawTextBox(gp.PANEL_WIDTH-400, gp.PANEL_HEIGHT-190,300, 100, text);
 
+            g2.setFont(hollaween);
             x = getXforCenteredText(playStateText);
             int y = gp.PANEL_HEIGHT / 2;
             g2.drawString(playStateText, x, y);
@@ -89,7 +89,7 @@ public class UI {
             int frameX = 100;
             int frameY = 50;
             int width = 500;
-            int height = 500;
+            int height = 600;
             drawSubFrame(frameX, frameY, width, height);
             drawInstruction(frameX, frameY);
             if(gp.keyH.soundOn) {
@@ -292,15 +292,21 @@ public class UI {
         // CLICK KEY I TO SEE INSTRUCTION
         textX = frameX + textGapX;
         textY += textGapY;
-        g2.drawString("I - Show Instructions", textX, textY);
+        g2.drawString("<KEY-I> Show Instructions", textX, textY);
 
         // CLICK KEY ESC to PAUSE
         textY += textGapY;
-        g2.drawString("Esc - Pause the Game", textX, textY);
+        g2.drawString("<KEY-Esc> Pause the Game", textX, textY);
+
+        // CLICK KEY O TO SEE OPTION
+        textY += textGapY;
+        g2.drawString("<KEY-O> SHOW MORE OPTIONS", textX, textY);
 
         // PRESS SPACEBAR OR MOUSE CLICK TO FLY UP
         textY += textGapY;
         g2.drawString("<Space Bar> or Mouse Click - Fly up", textX, textY);
+
+
     }
     public void pauseScreen() {
 
